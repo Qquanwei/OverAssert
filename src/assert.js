@@ -3,15 +3,11 @@
 // Nomal
 
 function Assert () {
-}
-
-Assert.prototype.of = function () {
-    if (value instanceof Assert) {
-        return value;
+    if (!(this instanceof Assert)) {
+        throw new Error('Maybe you should initialize by Assert.of(value)');
     }
-
-    return new Normal(value);
 }
+
 
 Assert.prototype.map = function (fn) {
     throw new Error('map not implement');
@@ -21,10 +17,17 @@ Assert.prototype.getValue = function () {
     return this.value;
 }
 
-function Normal(valueOrAssert) {
-    if (!(this instanceof Normal)) {
-        throw new Error('Maybe you should initialize by Normal.of(value)');
+Assert.prototype.of = function (value) {
+    if (value instanceof Assert) {
+        return value;
     }
+
+    return new Normal(value);
+}
+
+function Normal(valueOrAssert) {
+    Assert.call(this, valueOrAssert);
+
     this.success = true;
     this.value = valueOrAssert;
 }
@@ -45,13 +48,12 @@ Normal.prototype.map = function (fn) {
     return Normal.of(value);
 }
 
+
+
 // Failed
 
 function Failed(valueOrAssert) {
-    if (!(this instanceof Assert)) {
-        throw new Error('Maybe you should initialize by Failed.of');
-    }
-
+    Assert.call(this, valueOrAssert);
     this.success = false;
     this.value = valueOrAssert;
 }
@@ -64,7 +66,7 @@ Failed.prototype.map = function (fn) {
 }
 
 
-Failed.prototype.of = function (valueOrAssert) {
+Failed.of = function (valueOrAssert) {
     if(valueOrAssert instanceof Assert) {
         return valueOrAssert;
     }
@@ -72,7 +74,7 @@ Failed.prototype.of = function (valueOrAssert) {
     return new Failed(valueOrAssert);
 }
 
-export {
+module.exports = {
     Failed,
     Normal,
     Assert
