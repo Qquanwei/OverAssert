@@ -7,6 +7,7 @@ import less from './less';
 import allPass from './allPass';
 import itShould from './itShould';
 import itShouldProp from './itShouldProp';
+import itShouldPath from './itShouldPath';
 import equals from './equals';
 
 export {
@@ -19,5 +20,6 @@ export {
     allPass,
     itShould,
     itShouldProp,
-    equals
+    equals,
+    itShouldPath
 }

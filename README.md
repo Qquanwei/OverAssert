@@ -29,6 +29,7 @@ of(x)
     * (of)(#of)
     * (itShould)(#itShould)
     * (itShouldProp)(#itShouldProp)
+    * (itShouldPath)(#itShouldPath)
     * (always)(#always)
 
 * (断言函数)[#断言函数]
