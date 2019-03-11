@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Qquanwei/OverAssert.svg?token=ywJP6ZbPxtsNYQ2GidVL&branch=master)](https://travis-ci.com/Qquanwei/OverAssert)
 [![codecov](https://codecov.io/gh/Qquanwei/OverAssert/branch/master/graph/badge.svg?token=oJbeN3S4cq)](https://codecov.io/gh/Qquanwei/OverAssert)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FQquanwei%2FOverAssert.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FQquanwei%2FOverAssert?ref=badge_shield)
 
 校验，规则，可组合，可复用，同步&异步, 函数式.
 
