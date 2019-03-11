@@ -11,7 +11,35 @@ const { Normal, itShould, large, always } = A;
 Normal.of(x)
     .map(itShould(large(10), always('应该大于10')))
     .map(itShould(large(20), always('应该大于20')))
+    .map(itShould(
+        allPass(large(10), less(20)),
+        always('不在区间内')
+    ))
 ```
+
+## API
+
+### 建立描述
+
+* Normal.of
+* Failed.of
+* itShould
+* always
+
+### 断言函数
+
+* large
+* less
+
+### 组合规则
+
+* compact
+
+
+### 组合断言
+
+* allPass
+
 
 一点点概念:
 
@@ -72,28 +100,7 @@ Normal.of(15)
 ```
 
 
-## API
 
-### 建立描述
-
-* Normal.of
-* Failed.of
-* itShould
-* always
-
-### 断言函数
-
-* large
-* less
-
-### 组合规则
-
-* compact
-
-
-### 组合断言
-
-* allPass
 
 ## Normal and Failed
 
