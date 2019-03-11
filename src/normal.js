@@ -1,5 +1,8 @@
 import Assert from './assert';
+import NormalP from './normalP';
 import Failed from './failed';
+import _isFailedByRuleValue from './internal/_isFailedByRuleValue';
+import _isThenable from './internal/_isThenable';
 
 function Normal(valueOrAssert) {
     Assert.call(this, valueOrAssert);
@@ -16,8 +19,16 @@ Normal.prototype.constructor = Normal;
 Normal.prototype.map = function (fn) {
     const value = fn(this.value);
 
-    if (value && typeof value === 'string') {
+    if (value instanceof Assert) {
+        return value;
+    }
+
+    if (_isFailedByRuleValue(value)) {
         return new Failed(value);
+    }
+
+    if (_isThenable(value)) {
+        return new NormalP(value);
     }
 
     return this;

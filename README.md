@@ -3,12 +3,12 @@
 [![Build Status](https://travis-ci.com/Qquanwei/OverAssert.svg?token=ywJP6ZbPxtsNYQ2GidVL&branch=master)](https://travis-ci.com/Qquanwei/OverAssert)
 [![codecov](https://codecov.io/gh/Qquanwei/OverAssert/branch/master/graph/badge.svg?token=oJbeN3S4cq)](https://codecov.io/gh/Qquanwei/OverAssert)
 
-校验，规则，可组合，可复用，函数式。
+校验，规则，可组合，可复用，同步&异步, 函数式.
 
 
 ## 使用
 ```javascript
-import { of, map, itShould, always } from 'overassert';
+import { of, itShould, always } from 'overassert';
 
 of(x)
   .map(itShould(large(10), always('应该大于10')))
@@ -20,6 +20,40 @@ of(x)
       // value === reason
     }
   })
+```
+
+
+## 异步校验
+
+如果有一个断言函数是 `x => Promise`, 那么就是一个异步校验. OverAssert天然支持异步校验.
+
+异步校验会将Promise::fulfilled当作成功的条件, 对应的Promise::rejected会执行失败逻辑.
+
+
+```javascript
+import { of, always } from 'overassert';
+
+function asyncLarge10(value) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (value > 10) {
+                resolve();
+            } else {
+                reject();
+            }
+        }, 300);
+    });
+}
+
+of(x)
+    .map(itShould(asyncLarge10, always('emm!')))
+    .validate((success, value) => {
+        if (success) {
+            // value === x
+        } else {
+            // value === 'emm!'
+        }
+    })
 ```
 
 ## API
