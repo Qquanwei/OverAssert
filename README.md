@@ -54,6 +54,7 @@ of(x)
 * [创建复合断言](#创建复合断言)
 * [创建复合规则](#创建复合规则)
 
+=====================
 
 ### of
 
@@ -66,7 +67,7 @@ of(x)
     of([1, 2, 3])
     of({ name: 'Alice', age: 20})
 ```
-
+-------------------------
 ### itShould
 
 > itShould(assertFunction, failedFunction) => Function
@@ -88,7 +89,7 @@ output:
 ```
 false `1 is not array`
 ```
-
+--------------------------
 ### itShouldProp
 
 > itShouldProp(propName, assertFunction, failedFunction) => Function
@@ -108,7 +109,7 @@ output
 ```
 false Alice is not array
 ```
-
+---------------------------
 ### itShouldPath
 
 > itShouldPath(propArray, assertFunction, failedFunction) => Function
@@ -128,7 +129,7 @@ output
 ```
 false Alice is not array
 ```
-
+----------------------------
 ### always
 
 > always(message) => Function
@@ -148,7 +149,7 @@ output
 ```
 false 该属性不是Array
 ```
-
+----------------------------
 ### large
 
 > large(number) => Function
@@ -169,6 +170,7 @@ output
 false 数字应该大于10
 ```
 
+-------------------------------
 ### less
 
 > less(number) => Function
@@ -189,17 +191,19 @@ output
 ```
 false 数字应该小于10
 ```
-
+----------------------------------
 ### equals
 
 > equals(number) => Function
 
+--------------------------------
 ### compact
 
 > compact(rule1, rule2, ...) => Rule Function
 
 组合多个规则函数生成一个规则
 
+----------------------------------
 ### allPass
 
 > allPass(assertFunction1, assertFunction2, ...) => Assert Function
@@ -222,6 +226,8 @@ output
 ```
 false 数字不在区间内
 ```
+
+======================
 
 一点点概念:
 
