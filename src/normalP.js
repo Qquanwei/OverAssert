@@ -21,7 +21,7 @@ NormalP.prototype.validate = function validate(callback) {
 
 NormalP.prototype.map = function map(rule) {
     return new NormalP(
-        this.value.then((realValue) => of(returnValue).map(rule))
+        this.value.then((realValue) => of(realValue).map(rule))
     );
 }
 
