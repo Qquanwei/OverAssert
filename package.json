@@ -4,7 +4,8 @@
     "description": "校验，规则，可组合，可复用，函数式。",
     "main": "index.js",
     "scripts": {
-        "test": "mocha --require @babel/register "
+        "coverage": "nyc --reporter=text-lcov mocha --require @babel/register >  coverage.lcov && codecov",
+        "test": "mocha --require @babel/register"
     },
     "repository": {
         "type": "git",
@@ -22,9 +23,11 @@
         "@babel/preset-env": "^7.3.4",
         "@babel/register": "^7.0.0",
         "chai": "^4.2.0",
+        "codecov": "^3.2.0",
         "jasmine-core": "^3.3.0",
         "karma": "^4.0.1",
         "karma-jasmine": "^2.0.1",
-        "mocha": "^6.0.2"
+        "mocha": "^6.0.2",
+        "nyc": "^13.3.0"
     }
 }
