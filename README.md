@@ -27,12 +27,12 @@ of(x)
 ## API
 
 * 建立描述
-
     * [of](#of)
     * [itShould](#itShould)
     * [itShouldProp](#itShouldProp)
     * [itShouldPath](#itShouldPath)
     * [always](#always)
+    * [validate](#validate)
 
 * 断言函数
 
@@ -149,6 +149,37 @@ output
 ```
 false 该属性不是Array
 ```
+--------------------------
+### validate
+
+> validate(assert1, assert2,..., callback)
+
+validate是assert.validate的函数形式，可以同时校验多个assert
+
+```javascript
+    validate(
+        of(1).map(itShould(large(10), always('应该大于10'))),
+        (success, value) => {
+            console.log(success, value)
+        }
+    );
+
+    validate(
+        of(11).map(itShould(large(10), always('应该大于10'))),
+        of(12).map(itShould(large(20), always('应该大于20'))),
+        (success, value) => {
+            console.log(success, value);
+        }
+    )
+```
+
+output
+
+```
+false 应该大于10
+false 应该大于20
+```
+
 ----------------------------
 ### large
 
