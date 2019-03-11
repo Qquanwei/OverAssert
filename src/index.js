@@ -6,6 +6,8 @@ import large from './large';
 import less from './less';
 import allPass from './allPass';
 import itShould from './itShould';
+import itShouldProp from './itShouldProp';
+import equals from './equals';
 
 export {
     Assert,
@@ -15,5 +17,7 @@ export {
     large,
     less,
     allPass,
-    itShould
+    itShould,
+    itShouldProp,
+    equals
 }
