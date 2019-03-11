@@ -11,7 +11,7 @@ Failed.prototype = new Assert();
 Failed.prototype.constructor = Failed;
 
 Failed.prototype.map = function (fn) {
-    return Failed.of(this);
+    return this;
 }
 
 

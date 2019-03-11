@@ -1,4 +1,5 @@
 import Assert from './assert';
+import Failed from './failed';
 
 function Normal(valueOrAssert) {
     Assert.call(this, valueOrAssert);
@@ -27,7 +28,7 @@ Normal.prototype.map = function (fn) {
         return Failed.of(value);
     }
 
-    return Normal.of(value);
+    return this;
 }
 
 export default Normal;
