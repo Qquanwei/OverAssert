@@ -23,6 +23,37 @@ of(x)
 ```
 
 
+## API
+
+* 建立描述
+
+    * (of)(#of)
+    * (itShould)(#itShould)
+    * (itShouldProp)(#itShouldProp)
+    * (itShouldPath)(#itShouldPath)
+    * (always)(#always)
+
+* (断言函数)[#断言函数]
+
+    * (large)[#large]
+    * (less)[#less]
+    * (equal)[#equal]
+
+* (组合规则)[#组合规则]
+
+    * (compact)[#compact]
+
+* (组合断言)[#组合断言]
+
+    * (allPass)[#allPass]
+
+
+一点点概念:
+
+断言函数: 指仅仅提供断言功能，返回是否满足条件的函数. (x) => bool
+
+规则函数: 指自定义，或者用itShould创建，里面包含断言与错误信息的函数
+
 ## 异步校验
 
 如果有一个断言函数是 `x => Promise`, 那么就是一个异步校验. OverAssert天然支持异步校验.
@@ -55,37 +86,6 @@ of(x)
         }
     })
 ```
-
-## API
-
-* 建立描述
-
-    * (of)(#of)
-    * (itShould)(#itShould)
-    * (itShouldProp)(#itShouldProp)
-    * (itShouldPath)(#itShouldPath)
-    * (always)(#always)
-
-* (断言函数)[#断言函数]
-
-    * (large)[#large]
-    * (less)[#less]
-    * (equal)[#equal]
-
-* (组合规则)[#组合规则]
-
-    * (compact)[#compact]
-
-* (组合断言)[#组合断言]
-
-    * (allPass)[#allPass]
-
-
-一点点概念:
-
-断言函数: 指仅仅提供断言功能，返回是否满足条件的函数. (x) => bool
-
-规则函数: 指自定义，或者用itShould创建，里面包含断言与错误信息的函数
 
 ## 自定义断言函数
 
