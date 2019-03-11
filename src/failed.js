@@ -15,12 +15,4 @@ Failed.prototype.map = function (fn) {
 }
 
 
-Failed.of = function (valueOrAssert) {
-    if(valueOrAssert instanceof Assert) {
-        return valueOrAssert;
-    }
-
-    return new Failed(valueOrAssert);
-}
-
 export default Failed;

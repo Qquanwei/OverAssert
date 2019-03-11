@@ -9,8 +9,10 @@ Assert.prototype.map = function (fn) {
     throw new Error('map not implement');
 }
 
-Assert.prototype.getValue = function () {
-    return this.value;
+Assert.prototype.validate = function (callback) {
+    if (callback) {
+        callback(this.success, this.value);
+    }
 }
 
 export default Assert;

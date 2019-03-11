@@ -7,7 +7,7 @@ import less from './less';
 import allPass from './allPass';
 import itShould from './itShould';
 
-export default {
+export {
     Assert,
     Normal,
     Failed,

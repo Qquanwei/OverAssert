@@ -8,41 +8,42 @@
 
 ## 使用
 ```javascript
-import A from 'overassert';
+import { of, map, itShould, always } from 'overassert';
 
-const { Normal, itShould, large, always } = A;
-
-Normal.of(x)
-    .map(itShould(large(10), always('应该大于10')))
-    .map(itShould(large(20), always('应该大于20')))
-    .map(itShould(
-        allPass(large(10), less(20)),
-        always('不在区间内')
-    ))
+of(x)
+  .map(itShould(large(10), always('应该大于10')))
+  .map(itShould(large(20), always('应该大于20')))
+  .validate((success, value) => {
+    if (success) {
+       // value === x
+    } else {
+      // value === reason
+    }
+  })
 ```
 
 ## API
 
-### 建立描述
+* 建立描述
 
-* Normal.of
-* Failed.of
-* itShould
-* always
+    * (of)(#of)
+    * (itShould)(#itShould)
+    * (itShouldProp)(#itShouldProp)
+    * (always)(#always)
 
-### 断言函数
+* (断言函数)[#断言函数]
 
-* large
-* less
+    * (large)[#large]
+    * (less)[#less]
+    * (equal)[#equal]
 
-### 组合规则
+* (组合规则)[#组合规则]
 
-* compact
+    * (compact)[#compact]
 
+* (组合断言)[#组合断言]
 
-### 组合断言
-
-* allPass
+    * (allPass)[#allPass]
 
 
 一点点概念:
@@ -68,8 +69,8 @@ function customP(value) {
    }
 }
 
-Normal.of(x)
-    .map(customP)
+of(x)
+  .map(customP)
 ```
 
 
@@ -79,11 +80,11 @@ Normal.of(x)
 
 例如: allPass
 ```
-Normal.of(10)
-    .map(itShould(
-        allPass(large(10), less(20)),
-        always('数据不在区间内')
-    ))
+of(10)
+  .map(itShould(
+      allPass(large(10), less(20)),
+      always('数据不在区间内')
+  ))
 ```
 
 ## 创建复合规则
@@ -97,10 +98,10 @@ const myCustomCompact = compact(
     itShould(less(20), always('should less than 20'))
 );
 
-Normal.of(15)
-    .map(myCustomCompact)
-    .map(customP)
-    .map(itShould(isInteger(), always('should is a integer')));
+of(15)
+  .map(myCustomCompact)
+  .map(customP)
+  .map(itShould(isInteger(), always('should is a integer')));
 ```
 
 

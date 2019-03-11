@@ -1,5 +1,5 @@
 import _identity from './internal/_identity';
-import Normal from './normal';
+import of from './of';
 
 function compact(...FnArgs) {
 
@@ -8,7 +8,7 @@ function compact(...FnArgs) {
     return value => {
         return fns.reduce((v, fn) => {
             return v.map(fn);
-        }, Normal.of(value));
+        }, of(value));
     }
 }
 
