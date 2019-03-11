@@ -27,26 +27,194 @@ of(x)
 
 * 建立描述
 
-    * (of)(#of)
-    * (itShould)(#itShould)
-    * (itShouldProp)(#itShouldProp)
-    * (itShouldPath)(#itShouldPath)
-    * (always)(#always)
+    * [of](#of)
+    * [itShould](#itShould)
+    * [itShouldProp](#itShouldProp)
+    * [itShouldPath](#itShouldPath)
+    * [always](#always)
 
-* (断言函数)[#断言函数]
+* 断言函数
 
-    * (large)[#large]
-    * (less)[#less]
-    * (equal)[#equal]
+    * [large](#large)
+    * [less](#less)
+    * [equals](#equals)
 
-* (组合规则)[#组合规则]
+* 组合规则
 
-    * (compact)[#compact]
+    * [compact](#compact)
 
 * (组合断言)[#组合断言]
 
-    * (allPass)[#allPass]
+    * [allPass](#allPass)
 
+
+### of
+
+> of(data) => Assert Object
+
+创建一个校验对象
+
+```javascript
+    of(1)
+    of([1, 2, 3])
+    of({ name: 'Alice', age: 20})
+```
+
+### itShould
+
+> itShould(assertFunction, failedFunction) => Function
+
+通过断言函数，错误信息函数生成一个规则函数.
+
+```javascript
+of(1)
+   .map(itShould(Array.isArray, item => `${item} is not array`))
+   .validate((success, value) => {
+       console.log(success, value);
+   })
+
+
+```
+
+output:
+
+```
+false `1 is not array`
+```
+
+### itShouldProp
+
+> itShouldProp(propName, assertFunction, failedFunction) => Function
+
+通过断言某个属性生成一个规则函数
+
+```javascript
+of({ name: 'Alice' })
+    .map(itShouldProp('name', Array.isArray, item => `${item} is not array`))
+    .validate((success, value) => {
+        console.log(success, value);
+    })
+```
+
+output
+
+```
+false Alice is not array
+```
+
+### itShouldPath
+
+> itShouldPath(propArray, assertFunction, failedFunction) => Function
+
+通过断言深层属性生成一个规则函数. 如果该路径不存在，则直接断言失败，并返回`failedFunction(undefined)`.
+
+```javascript
+of({ first: { name: 'Alice'}})
+    .map(itShouldPath(['first', 'name'], Array.isArray, item => `${item} is not array`))
+    .validate((success, value) => {
+        console.log(success, value);
+    })
+```
+
+output
+
+```
+false Alice is not array
+```
+
+### always
+
+> always(message) => Function
+
+生成一个返回固定信息的函数.
+
+```javascript
+of(1)
+    .map(itShould(Array.isArray, always('该属性不是Array')))
+    .validate((success, value) => {
+        console.log(success, value);
+    })
+```
+
+output
+
+```
+false 该属性不是Array
+```
+
+### large
+
+> large(number) => Function
+
+生成一个判断是否大于指定数字的断言函数
+
+```javascript
+of(1)
+    .map(itShould(large(10), always('数字应该大于10')))
+    .validate((success, value) => {
+        console.log(success, value)
+    })
+```
+
+output
+
+```
+false 数字应该大于10
+```
+
+### less
+
+> less(number) => Function
+
+生成一个判断是否小于指定数字的断言函数
+
+```javascript
+of(12)
+    .map(itShould(large(5), always('数字应该大于5')))
+    .map(itShould(less(10),always('数字应该小于10')))
+    .validate((success, value) => {
+        console.log(success, value)
+    })
+```
+
+output
+
+```
+false 数字应该小于10
+```
+
+### equals
+
+> equals(number) => Function
+
+### compact
+
+> compact(rule1, rule2, ...) => Rule Function
+
+组合多个规则函数生成一个规则
+
+### allPass
+
+> allPass(assertFunction1, assertFunction2, ...) => Assert Function
+
+返回一个新的断言，当所有条件满足即满足条件.
+
+```javascript
+of(15)
+    .map(itShould(
+        allPass(large(10), less(20)),
+        always('数字不在区间内')
+    ))
+    .validate((success, value) => {
+        console.log(success, value);
+    })
+```
+
+output
+
+```
+false 数字不在区间内
+```
 
 一点点概念:
 

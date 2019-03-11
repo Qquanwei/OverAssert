@@ -10,5 +10,4 @@ function allPass(...fnArgs) {
     }
 }
 
-
 export default allPass;
