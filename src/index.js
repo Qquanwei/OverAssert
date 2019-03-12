@@ -11,6 +11,7 @@ import itShouldPath from './itShouldPath';
 import equals from './equals';
 import validate from './validate';
 import lessOrEqual from './lessOrEqual';
+import integer from './integer';
 
 export {
     Assert,
@@ -25,5 +26,6 @@ export {
     equals,
     itShouldPath,
     validate,
-    lessOrEqual
+    lessOrEqual,
+    integer
 }

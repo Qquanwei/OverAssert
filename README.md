@@ -40,6 +40,7 @@ of(x)
   * [less](#less)
   * [lessOrEqual](#lessOrEqual)
   * [equals](#equals)
+  * [integer](#integer)
 
 * 组合规则
 
@@ -231,6 +232,21 @@ false 数字应该小于10
 ### equals
 
 > equals(number) => Function
+
+------------------------------
+### integer
+> integer() => Function
+判断是否是整数
+
+```
+12.3 -> false
+"12.3" -> false
+"12ac" -> false
+null -> false
+undefined -> false
+object -> false
+```
+
 
 --------------------------------
 ### compact
