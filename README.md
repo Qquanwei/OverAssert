@@ -61,34 +61,52 @@ of(x)
   * [创建复合断言](#创建复合断言)
   * [创建复合规则](#创建复合规则)
 
-=====================
 
-### of
-
-> of(data) => Assert Object
-
-创建一个校验对象
+of(data: any) => Assert(#of)
+--------------------
+#### 创建一个Assert对象
 
 ```javascript
-    of(1)
-    of([1, 2, 3])
-    of({ name: 'Alice', age: 20})
+    assert = of(1)
+    assert = of([1, 2, 3])
+    assert = of({ name: 'Alice', age: 20})
 ```
+
+* assert.map(rule)
+
+rule: (value: any) => Assert|Promise|string|undefined
+
+* assert.validate(callback)
+
+callback: (success: boolean, reason: string) => void
+
+itShould(predicate: Function, failedReason: Function) => rule
 -------------------------
-### itShould
+#### 通过断言函数，错误信息函数生成一个规则函数.
 
-> itShould(assertFunction, failedFunction) => Function
+```javascript
+    rule1 = itShould(Array.isArray, item => `${item} is not array`);
+```
 
-通过断言函数，错误信息函数生成一个规则函数.
+equal
+
+```javascript
+    rule1 = (value) => {
+        if (Array.isArray(value)) {
+            return undefined;
+        }
+        return `${value} is not array`
+    }
+```
+
 
 ```javascript
 of(1)
    .map(itShould(Array.isArray, item => `${item} is not array`))
+   .map(itShould(Number.isInteger, item => `${item} should be integer`))
    .validate((success, value) => {
        console.log(success, value);
    })
-
-
 ```
 
 output:
@@ -96,12 +114,11 @@ output:
 ```
 false `1 is not array`
 ```
+
+itShouldProp(propName: string, predicate: Function, failedReason: Function) => rule
 --------------------------
-### itShouldProp
+#### 通过断言某个属性生成一个规则函数
 
-> itShouldProp(propName, assertFunction, failedFunction) => Function
-
-通过断言某个属性生成一个规则函数
 
 ```javascript
 of({ name: 'Alice' })
@@ -116,12 +133,10 @@ output
 ```
 false Alice is not array
 ```
+
+itShouldPath(pathArray: Array, predicate: Function, failedReason: Function) => rule
 ---------------------------
-### itShouldPath
-
-> itShouldPath(propArray, assertFunction, failedFunction) => Function
-
-通过断言深层属性生成一个规则函数. 如果该路径不存在，则直接断言失败，并返回`failedFunction(undefined)`.
+### 通过断言深层属性生成一个规则函数. 如果该路径不存在，则直接断言失败
 
 ```javascript
 of({ first: { name: 'Alice'}})
@@ -136,12 +151,10 @@ output
 ```
 false Alice is not array
 ```
+
+always(reason: string) => Function
 ----------------------------
-### always
-
-> always(message) => Function
-
-生成一个返回固定信息的函数.
+#### 生成一个返回固定信息的函数.
 
 ```javascript
 of(1)
@@ -156,12 +169,10 @@ output
 ```
 false 该属性不是Array
 ```
+
+validate(v1: Assert,v2: Assert,..., callback: Function) => void
 --------------------------
-### validate
-
-> validate(assert1, assert2,..., callback)
-
-validate是assert.validate的函数形式，可以同时校验多个assert
+#### validate是assert.validate的函数形式，可以同时校验多个assert
 
 ```javascript
     validate(
@@ -187,12 +198,14 @@ false 应该大于10
 false 应该大于20
 ```
 
+large(value: number) => Predicate Function
 ----------------------------
-### large
+### 生成一个判断是否大于指定数字的断言函数
 
-> large(number) => Function
+large10 = large(10);
 
-生成一个判断是否大于指定数字的断言函数
+* large10(1) -> false
+* large10(11) -> true
 
 ```javascript
 of(1)
@@ -208,12 +221,9 @@ output
 false 数字应该大于10
 ```
 
+less(value: number) => PredicateFunction
 -------------------------------
-### less
-
-> less(number) => Function
-
-生成一个判断是否小于指定数字的断言函数
+#### 生成一个判断是否小于指定数字的断言函数
 
 ```javascript
 of(12)
@@ -229,19 +239,18 @@ output
 ```
 false 数字应该小于10
 ```
+
+lessOrEqual(value: number) => PredicateFunction
 --------------
-### lessOrEqual
-> lessOrEqual(number) => Function
-判断是否小于等于
+#### 判断是否小于等于
+
+equals(value: any) => PredicateFunction
 ----------------------------------
-### equals
+#### 判断是否严格相等
 
-> equals(number) => Function
-
+integer() => PredicateFunction
 ------------------------------
-### integer
-> integer() => Function
-判断是否是整数
+#### 判断是否是整数
 
 ```
 12.3 -> false
@@ -252,38 +261,17 @@ undefined -> false
 object -> false
 ```
 
+nature() => PredicateFunction
 -----------------------
-### nature
-> nature() => Function
+#### 判断是否是自然数
 
-判断是否是自然数
-
+natureNoZero() => PredicateFunction
 ---------------
-### natureNoZero
-> naturoNoZero() => Function
-判断是否是不为0的自然数
+#### 判断是否是不为0的自然数
 
+imageMatchP(rule1: Function, rule2: Function, ...) => PredicateFunction
 --------------
-### imageMatchP
-
-> imageMatchP(rule1, rule2) => Function
-
-判断本地图片是否合法
-
-```javascript
-of(imageFile)
-    .map(imageMatchP(
-        itShouldProp('width', large(20), always('width should large 20')),
-        itShouldProp('height', less(100), always('height should less 100'))
-    ))
-    .validate((success, reason) => {
-    })
-```
-
-其实imageMatchP是一个普通的异步断言. 可以和itShould结合使用。但是由于imageMatchP
-返回的是一个`Promise<Assert>`，所以既是一个断言函数，又是一个规则函数.
-
-当然有些情况下我们需要处理一些异常逻辑, 所以写成下面这样也没问题
+#### 判断本地图片对象是否合法
 
 ```javascript
 
@@ -295,11 +283,22 @@ of(imageFile)
     })
 ```
 
-----------------------
-### validUrl
-> validUrl() => Function
+imageMatchP是一个普通的异步断言. 可以和itShould结合使用。但是由于imageMatchP
+返回的是一个`Promise<Assert>`，所以既是一个断言函数，又是一个规则函数, 所以写成下面这样也没问题
 
-是否是合法的url
+```javascript
+of(imageFile)
+    .map(imageMatchP(
+        itShouldProp('width', large(20), always('width should large 20')),
+        itShouldProp('height', less(100), always('height should less 100'))
+    ))
+    .validate((success, reason) => {
+    })
+```
+
+validUrl() => PredicateFunction
+----------------------
+#### 是否是合法的url
 
 ```
 http://google.com -> true
@@ -312,19 +311,13 @@ helloworld.com -> false
 worldismine/ccc -> false
 ```
 
+compact(rule1: Function, rule2: Function, ...) => Rule
 --------------------------------
-### compact
+#### 组合多个规则函数生成一个规则
 
-> compact(rule1, rule2, ...) => Rule Function
-
-组合多个规则函数生成一个规则
-
+allPass(predicate1: Function, predicate2: Function, ...) => PredicateFunction
 ----------------------------------
-### allPass
-
-> allPass(assertFunction1, assertFunction2, ...) => Assert Function
-
-返回一个新的断言，当所有条件满足即满足条件.
+#### 返回一个新的断言，当所有条件满足即满足条件时为真
 
 ```javascript
 of(15)
@@ -343,9 +336,8 @@ output
 false 数字不在区间内
 ```
 
-======================
 
-一点点概念:
+### 一点点概念:
 
 断言函数: 指仅仅提供断言功能，返回是否满足条件的函数. (x) => bool
 
