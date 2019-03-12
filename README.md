@@ -44,6 +44,7 @@ of(x)
   * [nature](#nature)
   * [natureNoZero](#natureNoZero)
   * [imageMatchP](#imageMatchP)
+  * [validUrl](#validUrl)
 * 组合规则
 
     * [compact](#compact)
@@ -292,6 +293,22 @@ of(imageFile)
     })
 ```
 
+----------------------
+### validUrl
+> validUrl() => Function
+
+是否是合法的url
+
+```
+http://google.com -> true
+http://google.com?a=1&b=1 -> true
+http://gogole.com/index.html -> true
+
+127.0.0.1 -> false
+undefined/null/number -> false
+helloworld.com -> false
+worldismine/ccc -> false
+```
 
 --------------------------------
 ### compact

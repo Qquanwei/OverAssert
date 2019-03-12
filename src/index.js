@@ -16,6 +16,7 @@ import nature from './nature';
 import natureNoZero from './natureNoZero';
 import imageMatchP from './imageMatchP';
 import of from './of';
+import validUrl from './validUrl';
 
 export {
     Assert,
@@ -35,5 +36,6 @@ export {
     nature,
     natureNoZero,
     imageMatchP,
-    of
+    of,
+    validUrl
 }
