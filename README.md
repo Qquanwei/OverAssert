@@ -62,7 +62,7 @@ of(x)
   * [创建复合规则](#创建复合规则)
 
 
-of(data: any) => Assert(#of)
+<a name="of"></a>of(data: any) => Assert(#of)
 --------------------
 #### 创建一个Assert对象
 
@@ -80,7 +80,7 @@ rule: (value: any) => Assert|Promise|string|undefined
 
 callback: (success: boolean, reason: string) => void
 
-itShould(predicate: Function, failedReason: Function) => rule
+<a name="itShould"></a>itShould(predicate: Function, failedReason: Function) => rule
 -------------------------
 #### 通过断言函数，错误信息函数生成一个规则函数.
 
@@ -115,7 +115,7 @@ output:
 false `1 is not array`
 ```
 
-itShouldProp(propName: string, predicate: Function, failedReason: Function) => rule
+<a name="itShouldProp"></a>itShouldProp(propName: string, predicate: Function, failedReason: Function) => rule
 --------------------------
 #### 通过断言某个属性生成一个规则函数
 
@@ -134,7 +134,7 @@ output
 false Alice is not array
 ```
 
-itShouldPath(pathArray: Array, predicate: Function, failedReason: Function) => rule
+<a name="itShouldPath"></a>itShouldPath(pathArray: Array, predicate: Function, failedReason: Function) => rule
 ---------------------------
 ### 通过断言深层属性生成一个规则函数. 如果该路径不存在，则直接断言失败
 
@@ -152,7 +152,7 @@ output
 false Alice is not array
 ```
 
-always(reason: string) => Function
+<a name="always"></a>always(reason: string) => Function
 ----------------------------
 #### 生成一个返回固定信息的函数.
 
@@ -170,7 +170,7 @@ output
 false 该属性不是Array
 ```
 
-validate(v1: Assert,v2: Assert,..., callback: Function) => void
+<a name="validate"></a>validate(v1: Assert,v2: Assert,..., callback: Function) => void
 --------------------------
 #### validate是assert.validate的函数形式，可以同时校验多个assert
 
@@ -198,7 +198,7 @@ false 应该大于10
 false 应该大于20
 ```
 
-large(value: number) => Predicate Function
+<a name="large"></a>large(value: number) => Predicate Function
 ----------------------------
 ### 生成一个判断是否大于指定数字的断言函数
 
@@ -221,7 +221,7 @@ output
 false 数字应该大于10
 ```
 
-less(value: number) => PredicateFunction
+<a name="less"></a>less(value: number) => PredicateFunction
 -------------------------------
 #### 生成一个判断是否小于指定数字的断言函数
 
@@ -240,15 +240,15 @@ output
 false 数字应该小于10
 ```
 
-lessOrEqual(value: number) => PredicateFunction
+<a name="lessOrEqual"></a>lessOrEqual(value: number) => PredicateFunction
 --------------
 #### 判断是否小于等于
 
-equals(value: any) => PredicateFunction
+<a name="equals"></a>equals(value: any) => PredicateFunction
 ----------------------------------
 #### 判断是否严格相等
 
-integer() => PredicateFunction
+<a name="integer"></a>integer() => PredicateFunction
 ------------------------------
 #### 判断是否是整数
 
@@ -261,15 +261,15 @@ undefined -> false
 object -> false
 ```
 
-nature() => PredicateFunction
+<a name="nature"></a>nature() => PredicateFunction
 -----------------------
 #### 判断是否是自然数
 
-natureNoZero() => PredicateFunction
+<a name="natureNoZero"></a>natureNoZero() => PredicateFunction
 ---------------
 #### 判断是否是不为0的自然数
 
-imageMatchP(rule1: Function, rule2: Function, ...) => PredicateFunction
+<a name="imageMatchP"></a>imageMatchP(rule1: Function, rule2: Function, ...) => PredicateFunction
 --------------
 #### 判断本地图片对象是否合法
 
@@ -296,7 +296,7 @@ of(imageFile)
     })
 ```
 
-validUrl() => PredicateFunction
+<a name="validUrl"></a>validUrl() => PredicateFunction
 ----------------------
 #### 是否是合法的url
 
@@ -311,11 +311,11 @@ helloworld.com -> false
 worldismine/ccc -> false
 ```
 
-compact(rule1: Function, rule2: Function, ...) => Rule
+<a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule
 --------------------------------
 #### 组合多个规则函数生成一个规则
 
-allPass(predicate1: Function, predicate2: Function, ...) => PredicateFunction
+<a name="allPass"></a>allPass(predicate1: Function, predicate2: Function, ...) => PredicateFunction
 ----------------------------------
 #### 返回一个新的断言，当所有条件满足即满足条件时为真
 
