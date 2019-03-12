@@ -12,6 +12,7 @@ import equals from './equals';
 import validate from './validate';
 import lessOrEqual from './lessOrEqual';
 import integer from './integer';
+import nature from './nature';
 
 export {
     Assert,
@@ -27,5 +28,6 @@ export {
     itShouldPath,
     validate,
     lessOrEqual,
-    integer
+    integer,
+    nature
 }

@@ -41,7 +41,7 @@ of(x)
   * [lessOrEqual](#lessOrEqual)
   * [equals](#equals)
   * [integer](#integer)
-
+  * [nature](#nature)
 * 组合规则
 
     * [compact](#compact)
@@ -247,6 +247,11 @@ undefined -> false
 object -> false
 ```
 
+-----------------------
+### nature
+> nature() => Function
+
+判断是否是自然数
 
 --------------------------------
 ### compact
