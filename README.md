@@ -43,6 +43,7 @@ of(x)
   * [integer](#integer)
   * [nature](#nature)
   * [natureNoZero](#natureNoZero)
+  * [imageMatchP](#imageMatchP)
 * 组合规则
 
     * [compact](#compact)
@@ -258,6 +259,39 @@ object -> false
 ### natureNoZero
 > naturoNoZero() => Function
 判断是否是不为0的自然数
+
+--------------
+> imageMatchP(rule1, rule2) => Function
+
+判断本地图片是否合法
+
+imageMatchP可以省略前面的itShould.
+
+```javascript
+of(imageFile)
+    .map(imageMatchP(
+        itShouldProp('width', large(20), always('width should large 20')),
+        itShouldProp('height', less(100), always('height should less 100'))
+    ))
+    .validate((success, reason) => {
+    })
+```
+
+其实imageMatchP是一个异步校验的断言函数. 所以可以和itShould结合使用。但是由于imageMatchP
+返回的是一个`Promise<Assert>`，所以可以省略itShould使用.
+
+所以写成下面这样也没问题
+
+```javascript
+
+const imageSizeRule = itShouldProp('width', large(10), always('width should large 10'));
+
+of(imageFile)
+    .map(itShould(imageMatchP(imageSizeRule), always('file not exists')))
+    .validate((success, reason) => {
+    })
+```
+
 
 --------------------------------
 ### compact

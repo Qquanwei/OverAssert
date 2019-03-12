@@ -7,15 +7,23 @@ function itShould(predicate, failed) {
         const returnValue = predicate(value);
 
         if (_isThenable(returnValue)) {
+            // there is 2 situation will consider be failed.
             return returnValue
-                .then(always(value))
+                .then(result => {
+                    // situation 1
+                    if (result instanceof Failed) {
+                        return reult;
+                    }
+                    return value
+                })
                 .catch(e => {
+                    // situation 2
                     return new Failed(failed(e));
                 });
         }
 
         if (!returnValue) {
-            return failed(value);
+            return new Failed(failed(value));
         }
 
         return false;

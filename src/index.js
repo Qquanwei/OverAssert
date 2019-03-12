@@ -14,6 +14,8 @@ import lessOrEqual from './lessOrEqual';
 import integer from './integer';
 import nature from './nature';
 import natureNoZero from './natureNoZero';
+import imageMatchP from './imageMatchP';
+import of from './of';
 
 export {
     Assert,
@@ -31,5 +33,7 @@ export {
     lessOrEqual,
     integer,
     nature,
-    natureNoZero
+    natureNoZero,
+    imageMatchP,
+    of
 }
