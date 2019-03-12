@@ -4,7 +4,7 @@ const int = integer();
 
 function nature() {
     return (value) => {
-        return int(value) && Number(value) > 0;
+        return int(value) && Number(value) >= 0;
     }
 }
 
