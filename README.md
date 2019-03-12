@@ -277,8 +277,8 @@ of(imageFile)
     })
 ```
 
-其实imageMatchP是一个普通的异步断言. 所以可以和itShould结合使用。但是由于imageMatchP
-返回的是一个`Promise<Assert>`，所以即是一个断言函数，又是一个规则函数, 所以可以省略itShould单独使用.
+其实imageMatchP是一个普通的异步断言. 可以和itShould结合使用。但是由于imageMatchP
+返回的是一个`Promise<Assert>`，所以既是一个断言函数，又是一个规则函数.
 
 当然有些情况下我们需要处理一些异常逻辑, 所以写成下面这样也没问题
 
