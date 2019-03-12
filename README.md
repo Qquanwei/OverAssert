@@ -42,6 +42,7 @@ of(x)
   * [equals](#equals)
   * [integer](#integer)
   * [nature](#nature)
+  * [natureNoZero](#natureNoZero)
 * 组合规则
 
     * [compact](#compact)
@@ -252,6 +253,11 @@ object -> false
 > nature() => Function
 
 判断是否是自然数
+
+---------------
+### natureNoZero
+> naturoNoZero() => Function
+判断是否是不为0的自然数
 
 --------------------------------
 ### compact

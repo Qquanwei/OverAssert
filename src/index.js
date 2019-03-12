@@ -13,6 +13,7 @@ import validate from './validate';
 import lessOrEqual from './lessOrEqual';
 import integer from './integer';
 import nature from './nature';
+import natureNoZero from './natureNoZero';
 
 export {
     Assert,
@@ -29,5 +30,6 @@ export {
     validate,
     lessOrEqual,
     integer,
-    nature
+    nature,
+    natureNoZero
 }
