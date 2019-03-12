@@ -1,16 +1,13 @@
 // only for browser
 
-function imageSizeP(imageFile) {
+function imageInfoP(imageFile) {
     return new Promise((done, reject) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => {
             const img = new Image();
             img.src = reader.result;
             img.onload = () => {
-                done({
-                    width: img.width,
-                    height: img.height
-                });
+                done(img);
             };
             img.onerror = reject;
         });
@@ -19,4 +16,4 @@ function imageSizeP(imageFile) {
 }
 
 
-export default imageSizeP;
+export default imageInfoP;

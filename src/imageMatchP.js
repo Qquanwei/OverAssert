@@ -1,4 +1,4 @@
-import _imageSizeP from './internal/_imageSizeP';
+import _imageInfoP from './internal/_imageInfoP';
 import compact from './compact';
 
 // itShould(imageSizeMatch(
@@ -6,7 +6,7 @@ import compact from './compact';
 // ))
 function imageMatchP(...assertFunction) {
     return file => {
-        return _imageSizeP(file)
+        return _imageInfoP(file)
             .then(compact.apply(this, assertFunction));
     }
 }
