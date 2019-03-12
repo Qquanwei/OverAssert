@@ -261,11 +261,11 @@ object -> false
 判断是否是不为0的自然数
 
 --------------
+### imageMatchP
+
 > imageMatchP(rule1, rule2) => Function
 
 判断本地图片是否合法
-
-imageMatchP可以省略前面的itShould.
 
 ```javascript
 of(imageFile)
@@ -277,10 +277,10 @@ of(imageFile)
     })
 ```
 
-其实imageMatchP是一个异步校验的断言函数. 所以可以和itShould结合使用。但是由于imageMatchP
-返回的是一个`Promise<Assert>`，所以可以省略itShould使用.
+其实imageMatchP是一个普通的异步断言. 所以可以和itShould结合使用。但是由于imageMatchP
+返回的是一个`Promise<Assert>`，所以即是一个断言函数，又是一个规则函数, 所以可以省略itShould单独使用.
 
-所以写成下面这样也没问题
+当然有些情况下我们需要处理一些异常逻辑, 所以写成下面这样也没问题
 
 ```javascript
 
