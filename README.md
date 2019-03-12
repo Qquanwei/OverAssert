@@ -25,6 +25,8 @@ of(x)
 ```
 
 
+![async predicate just fun](./snapshot/async_predicate_just_fun.png)
+
 ## API
 
 * 建立描述
