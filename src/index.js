@@ -9,6 +9,8 @@ import itShould from './itShould';
 import itShouldProp from './itShouldProp';
 import itShouldPath from './itShouldPath';
 import equals from './equals';
+import validate from './validate';
+import lessOrEqual from './lessOrEqual';
 
 export {
     Assert,
@@ -21,5 +23,7 @@ export {
     itShould,
     itShouldProp,
     equals,
-    itShouldPath
+    itShouldPath,
+    validate,
+    lessOrEqual
 }

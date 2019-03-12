@@ -28,18 +28,18 @@ of(x)
 ## API
 
 * 建立描述
-    * [of](#of)
-    * [itShould](#itShould)
-    * [itShouldProp](#itShouldProp)
-    * [itShouldPath](#itShouldPath)
-    * [always](#always)
-    * [validate](#validate)
+  * [of](#of)
+  * [itShould](#itShould)
+  * [itShouldProp](#itShouldProp)
+  * [itShouldPath](#itShouldPath)
+  * [always](#always)
+  * [validate](#validate)
 
 * 断言函数
-
-    * [large](#large)
-    * [less](#less)
-    * [equals](#equals)
+  * [large](#large)
+  * [less](#less)
+  * [lessOrEqual](#lessOrEqual)
+  * [equals](#equals)
 
 * 组合规则
 
@@ -48,12 +48,12 @@ of(x)
 * 组合断言
 
     * [allPass](#allPass)
-
-* [异步校验](#异步校验)
-* [自定义断言函数](#自定义断言函数)
-* [自定义规则函数](#自定义规则函数)
-* [创建复合断言](#创建复合断言)
-* [创建复合规则](#创建复合规则)
+* 高级
+  * [异步校验](#异步校验)
+  * [自定义断言函数](#自定义断言函数)
+  * [自定义规则函数](#自定义规则函数)
+  * [创建复合断言](#创建复合断言)
+  * [创建复合规则](#创建复合规则)
 
 =====================
 
@@ -223,6 +223,10 @@ output
 ```
 false 数字应该小于10
 ```
+--------------
+### lessOrEqual
+> lessOrEqual(number) => Function
+判断是否小于等于
 ----------------------------------
 ### equals
 
