@@ -20,6 +20,7 @@ import validUrl from './validUrl';
 import alpha from './alpha';
 import numeric from './numeric';
 import validIP from './validIP';
+import decimal from './decimal';
 
 export {
     Assert,
@@ -43,5 +44,6 @@ export {
     validUrl,
     alpha,
     numeric,
-    validIP
+    validIP,
+    decimal
 }

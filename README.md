@@ -37,7 +37,7 @@ of(x)
   * [always](#always)
   * [validate](#validate)
 
-* 断言函数
+* 断言
   * [large](#large)
   * [less](#less)
   * [lessOrEqual](#lessOrEqual)
@@ -50,6 +50,7 @@ of(x)
   * [validIP](#validIP)
   * [alpha](#alpha)
   * [numeric](#numeric)
+  * [decimal](#decimal)
 * 组合规则
 
     * [compact](#compact)
@@ -339,7 +340,7 @@ null -> false
 undefined -> false
 ```
 
-<a name="numeric"></a>numeric() => Function
+<a name="numeric"></a>numeric() => RuleFunction
 ---------
 #### 是否是数字
 
@@ -348,6 +349,20 @@ undefined -> false
 abc -> false
 null -> false
 undefined -> false
+```
+
+<a name="decimal"></a>decimal() => RuleFunction
+-------
+#### 是否是十进制的数字
+
+```
+123.123 -> true
+12 -> true
+.123 -> true
+
+null -> false
+undefined -> false
+abc -> false
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule

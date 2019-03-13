@@ -1,3 +1,5 @@
+// https://www.w3resource.com/javascript/form/ip-address-validation.php
+
 function validIP() {
     return (value) => {
         if (value === null || value === undefined) {
