@@ -51,6 +51,7 @@ of(x)
   * [alpha](#alpha)
   * [numeric](#numeric)
   * [decimal](#decimal)
+  * [minLength](#minLength)
 * 组合规则
 
     * [compact](#compact)
@@ -363,6 +364,25 @@ undefined -> false
 null -> false
 undefined -> false
 abc -> false
+```
+
+
+<a name="minLength"></a>minLength(value: number) => RuleFunction
+--------
+#### 判断输入最小长度
+
+```
+minLength(3) => 最小长度 >= 3
+
+123 -> true
+1234 -> true
+abcd -> true
+
+12 -> false
+null -> false
+undefined -> false
+ab -> false
+
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule
