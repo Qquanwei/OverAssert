@@ -4,6 +4,8 @@
     "description": "校验，规则，可组合，可复用，函数式。",
     "main": "index.js",
     "scripts": {
+        "clean": "rm -rf lib",
+        "build": "npm run clean && babel src --out-dir lib",
         "coverage": "nyc --reporter=text-lcov mocha --require @babel/register >  coverage.lcov && codecov",
         "test": "mocha --require @babel/register"
     },
@@ -19,6 +21,7 @@
     },
     "homepage": "https://github.com/Qquanwei/OverAssert#readme",
     "devDependencies": {
+        "@babel/cli": "^7.2.3",
         "@babel/core": "^7.3.4",
         "@babel/preset-env": "^7.3.4",
         "@babel/register": "^7.0.0",

@@ -17,6 +17,8 @@ import natureNoZero from './natureNoZero';
 import imageMatchP from './imageMatchP';
 import of from './of';
 import validUrl from './validUrl';
+import alpha from './alpha';
+import numeric from './numeric';
 
 export {
     Assert,
@@ -37,5 +39,7 @@ export {
     natureNoZero,
     imageMatchP,
     of,
-    validUrl
+    validUrl,
+    alpha,
+    numeric
 }

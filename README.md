@@ -47,6 +47,8 @@ of(x)
   * [natureNoZero](#natureNoZero)
   * [imageMatchP](#imageMatchP)
   * [validUrl](#validUrl)
+  * [alpha](#alpha)
+  * [numeric](#numeric)
 * 组合规则
 
     * [compact](#compact)
@@ -309,6 +311,29 @@ http://gogole.com/index.html -> true
 undefined/null/number -> false
 helloworld.com -> false
 worldismine/ccc -> false
+```
+
+<a name="alpha"></a>alpha()=> Function
+---------------------
+#### 是否是是字母表中的字母
+
+```
+abc -> true
+123 -> false
+abc!@# -> false
+null -> false
+undefined -> false
+```
+
+<a name="numeric"></a>numeric() => Function
+---------
+#### 是否是数字
+
+```
+123 -> true
+abc -> false
+null -> false
+undefined -> false
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule
