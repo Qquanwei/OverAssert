@@ -19,6 +19,7 @@ import of from './of';
 import validUrl from './validUrl';
 import alpha from './alpha';
 import numeric from './numeric';
+import validIP from './validIP';
 
 export {
     Assert,
@@ -41,5 +42,6 @@ export {
     of,
     validUrl,
     alpha,
-    numeric
+    numeric,
+    validIP
 }

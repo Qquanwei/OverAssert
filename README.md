@@ -47,6 +47,7 @@ of(x)
   * [natureNoZero](#natureNoZero)
   * [imageMatchP](#imageMatchP)
   * [validUrl](#validUrl)
+  * [validIP](#validIP)
   * [alpha](#alpha)
   * [numeric](#numeric)
 * 组合规则
@@ -313,7 +314,20 @@ helloworld.com -> false
 worldismine/ccc -> false
 ```
 
-<a name="alpha"></a>alpha()=> Function
+<a name="validIP"></a>validIP() => PredicateFunction
+--------------
+#### 是否是合法的ip
+
+```
+255.255.255.255 -> true
+0.0.0.0 -> true
+192.168.0.1 -> true
+
+256.0.0.1 -> false
+abcde -> false
+```
+
+<a name="alpha"></a>alpha()=> PredicateFunction
 ---------------------
 #### 是否是是字母表中的字母
 
