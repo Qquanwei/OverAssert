@@ -52,6 +52,7 @@ of(x)
   * [numeric](#numeric)
   * [decimal](#decimal)
   * [minLength](#minLength)
+  * [maxLength](#maxLength)
 * 组合规则
 
     * [compact](#compact)
@@ -395,7 +396,7 @@ abc -> false
 #### 判断输入最小长度
 
 ```
-minLength(3) => 最小长度 >= 3
+minLength(3) => 最小长度为3
 
 123 -> true
 1234 -> true
@@ -406,6 +407,24 @@ null -> false
 undefined -> false
 ab -> false
 
+```
+
+<a name="maxLength"></a>maxLength(value: number) => RuleFunction
+----------
+#### 判断输入最大长度
+
+```
+maxLength(3) => 最大长度为3
+
+123 -> true
+12 -> true
+ab -> true
+c -> true
+
+1234 -> false
+abcd -> false
+null -> false
+undefined -> false
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule

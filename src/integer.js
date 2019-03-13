@@ -1,7 +1,7 @@
+import _integer from './internal/_integer';
+
 function integer() {
-    return (numberOrString) => {
-        return /^-?[0-9]+$/.test(`${numberOrString}`);
-    }
+    return _integer;
 }
 
 export default integer;

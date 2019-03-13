@@ -1,11 +1,7 @@
-import integer from './integer';
-
-const int = integer();
+import _nature from './internal/_nature';
 
 function nature() {
-    return (value) => {
-        return int(value) && Number(value) >= 0;
-    }
+    return _nature;
 }
 
 export default nature;

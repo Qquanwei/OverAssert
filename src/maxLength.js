@@ -1,8 +1,8 @@
 import _natureNoZero from './internal/_natureNoZero';
 
-function minLength(length) {
-    if (!_natureNoZero(length))  {
-        throw new Error('minLength: length should be large than 0 and integer ');
+function maxLength(length) {
+    if (!_natureNoZero(length)) {
+        throw new Error('maxLength: legth should be large than 0 and integer');
     }
 
     return (value) => {
@@ -14,8 +14,8 @@ function minLength(length) {
             return false;
         }
 
-        return `${value}`.length >= length;
+        return `${value}`.length <= length;
     }
 }
 
-export default minLength;
+export default maxLength;

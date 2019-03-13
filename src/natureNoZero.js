@@ -1,11 +1,7 @@
-import nature from './nature';
-
-const nat = nature();
+import _natureNoZero from './internal/_natureNoZero';
 
 function natureNoZero() {
-    return value => {
-        return `${value}` !== '0' && nat(value);
-    }
+    return _natureNoZero;
 }
 
 export default natureNoZero;

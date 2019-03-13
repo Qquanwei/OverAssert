@@ -22,6 +22,7 @@ import numeric from './numeric';
 import validIP from './validIP';
 import decimal from './decimal';
 import minLength from './minLength';
+import maxLength from './maxLength';
 
 export {
     Assert,
@@ -47,5 +48,6 @@ export {
     numeric,
     validIP,
     decimal,
-    minLength
+    minLength,
+    maxLength
 }
