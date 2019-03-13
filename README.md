@@ -253,6 +253,11 @@ false 数字应该小于10
 ----------------------------------
 #### 判断是否严格相等
 
+```
+1 , 1 -> true
+1 , "1" -> false
+```
+
 <a name="integer"></a>integer() => PredicateFunction
 ------------------------------
 #### 判断是否是整数
@@ -270,9 +275,27 @@ object -> false
 -----------------------
 #### 判断是否是自然数
 
+```
+0 -> true
+1 -> true
+100 -> false
+-1 -> false
+null -> false
+undefined -> false
+```
+
 <a name="natureNoZero"></a>natureNoZero() => PredicateFunction
 ---------------
 #### 判断是否是不为0的自然数
+
+```
+1 -> true
+100 -> true
+
+0 -> false
+-1 -> false
+-100 -> false
+```
 
 <a name="imageMatchP"></a>imageMatchP(rule1: Function, rule2: Function, ...) => PredicateFunction
 --------------
