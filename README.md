@@ -104,9 +104,9 @@ Normal.of(15)
 
 ## Normal and Failed
 
-> import { Normal, Failed } from './src/Assert';
+> import { Normal, Failed } from './src';
 
-Normal以及Failed是Assert这个Monad的两个值, Normal用来表示一个正常的值, Failed用来表示一个失败的值.
+Normal用来表示一个正常的值, Failed用来表示一个失败的值.
 
 ## About Maybe Monad
 https://en.wikibooks.org/wiki/Haskell/Understanding_monads/Maybe
