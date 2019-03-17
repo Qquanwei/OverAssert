@@ -25,6 +25,7 @@ import minLength from './minLength';
 import maxLength from './maxLength';
 import required from './required';
 import exactLength from './exactLength';
+import matchs from './matchs';
 
 export {
     Assert,
@@ -53,5 +54,6 @@ export {
     minLength,
     maxLength,
     required,
-    exactLength
+    exactLength,
+    matchs
 }

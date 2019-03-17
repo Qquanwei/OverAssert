@@ -55,6 +55,8 @@ of(x)
   * [minLength](#minLength)
   * [maxLength](#maxLength)
   * [exactLength](#exactLength)
+  * [matchs](#matchs)
+
 * 组合规则
 
     * [compact](#compact)
@@ -428,6 +430,25 @@ ab -> false
 
 ```
 
+<a name="maxLength"></a>maxLength(value: number) => PredicateFunction
+----------
+#### 判断输入最大长度
+
+```
+maxLength(3) => 最大长度为3
+
+123 -> true
+12 -> true
+ab -> true
+c -> true
+
+1234 -> false
+abcd -> false
+null -> false
+undefined -> false
+```
+
+
 
 <a name="exactLength"></a>exactLength(value: number) => PredicateFunction
 --------------------
@@ -446,22 +467,17 @@ null -> false
 undefined -> false
 ```
 
-<a name="maxLength"></a>maxLength(value: number) => PredicateFunction
-----------
-#### 判断输入最大长度
+<a name="matchs"></a>matchs(re: RegExp|string) => PredicateFunction
+--------------
+#### 输入是否匹配指定正则或字符串
 
 ```
-maxLength(3) => 最大长度为3
+matchs(/123/) => 输入是否能够匹配123
 
-123 -> true
-12 -> true
-ab -> true
-c -> true
+12345 -> true
+'12345' -> true
 
-1234 -> false
-abcd -> false
-null -> false
-undefined -> false
+otherwise -> false
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule
