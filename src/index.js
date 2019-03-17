@@ -24,6 +24,7 @@ import decimal from './decimal';
 import minLength from './minLength';
 import maxLength from './maxLength';
 import required from './required';
+import exactLength from './exactLength';
 
 export {
     Assert,
@@ -51,5 +52,6 @@ export {
     decimal,
     minLength,
     maxLength,
-    required
+    required,
+    exactLength
 }
