@@ -38,6 +38,7 @@ of(x)
   * [validate](#validate)
 
 * 断言
+  * [required](#required)
   * [large](#large)
   * [less](#less)
   * [lessOrEqual](#lessOrEqual)
@@ -202,6 +203,23 @@ output
 ```
 false 应该大于10
 false 应该大于20
+```
+
+
+<a name="required"></a>required() = PredicateFunction
+-------------------
+#### 要求必须有值
+
+```
+true -> true
+false -> true
+123 -> true
+'hello' -> true
+0 -> true
+
+'' -> false
+null -> false
+undefined -> false
 ```
 
 <a name="large"></a>large(value: number) => Predicate Function
