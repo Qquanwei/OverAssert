@@ -54,6 +54,7 @@ of(x)
   * [decimal](#decimal)
   * [minLength](#minLength)
   * [maxLength](#maxLength)
+  * [exactLength](#exactLength)
 * 组合规则
 
     * [compact](#compact)
@@ -383,7 +384,7 @@ null -> false
 undefined -> false
 ```
 
-<a name="numeric"></a>numeric() => RuleFunction
+<a name="numeric"></a>numeric() => PredicateFunction
 ---------
 #### 是否是数字
 
@@ -394,7 +395,7 @@ null -> false
 undefined -> false
 ```
 
-<a name="decimal"></a>decimal() => RuleFunction
+<a name="decimal"></a>decimal() => PredicateFunction
 -------
 #### 是否是十进制的数字
 
@@ -409,7 +410,7 @@ abc -> false
 ```
 
 
-<a name="minLength"></a>minLength(value: number) => RuleFunction
+<a name="minLength"></a>minLength(value: number) => PredicateFunction
 --------
 #### 判断输入最小长度
 
@@ -427,7 +428,25 @@ ab -> false
 
 ```
 
-<a name="maxLength"></a>maxLength(value: number) => RuleFunction
+
+<a name="exactLength"></a>exactLength(value: number) => PredicateFunction
+--------------------
+#### 输入长度是否等于
+
+```
+exactLength(3) => 长度为3
+
+123 -> true
+abc -> true
+000 -> true
+
+-123 -> false
+ab -> false
+null -> false
+undefined -> false
+```
+
+<a name="maxLength"></a>maxLength(value: number) => PredicateFunction
 ----------
 #### 判断输入最大长度
 
