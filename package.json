@@ -1,8 +1,8 @@
 {
-    "name": "OverAssert",
+    "name": "overassert",
     "version": "1.0.0",
     "description": "校验，规则，可组合，可复用，函数式。",
-    "main": "index.js",
+    "main": "lib/index.js",
     "scripts": {
         "clean": "rm -rf lib",
         "build": "npm run clean && babel src --out-dir lib",
@@ -13,8 +13,8 @@
         "type": "git",
         "url": "git+https://github.com/Qquanwei/OverAssert.git"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": ["validation", "assert", "functional", "form"],
+    "author": "Qquanwei",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/Qquanwei/OverAssert/issues"
