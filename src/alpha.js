@@ -1,11 +1,7 @@
-function alpha() {
-    return (value) => {
-        if (value === null || value === undefined) {
-            return false;
-        }
+import _alpha from './internal/_alpha';
 
-        return /^[a-zA-Z]{1,}$/.test(value);
-    }
+function alpha() {
+    return _alpha;
 }
 
 

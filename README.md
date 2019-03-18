@@ -50,6 +50,7 @@ of(x)
   * [validUrl](#validUrl)
   * [validIP](#validIP)
   * [alpha](#alpha)
+  * [alphaDash](#alphaDash)
   * [numeric](#numeric)
   * [decimal](#decimal)
   * [minLength](#minLength)
@@ -385,6 +386,22 @@ abc!@# -> false
 null -> false
 undefined -> false
 ```
+
+<a name="alphaDash"></a>alphaDash() => PredicateFunction
+--------
+#### 是否仅仅为字母，下划线，中划线
+
+```
+abc -> true
+abc_bcd -> true
+abc-bcd -> true
+
+123 -> false
+abc123 -> false
+null -> false
+undefined -> false
+```
+
 
 <a name="numeric"></a>numeric() => PredicateFunction
 ---------

@@ -26,6 +26,7 @@ import maxLength from './maxLength';
 import required from './required';
 import exactLength from './exactLength';
 import matchs from './matchs';
+import alphaDash from './alphaDash';
 
 export {
     Assert,
@@ -55,5 +56,6 @@ export {
     maxLength,
     required,
     exactLength,
-    matchs
+    matchs,
+    alphaDash
 }
