@@ -33,14 +33,10 @@ import { of, maxLength, large, imageMatchP, itShould, always } from 'overassert'
 
 of({name, avatarFile, age})
   .map(itShouldProp('name', maxLength(10), always({ nameError: 'the length of name should be large 10' })))
-
-  .map(itShouldProp('age', large(10), always({ ageError: 'age should be large 10'})))
-
-  .map(itShouldProp('avatarFile', imageMatchP(
+  .map(imageMatchP(
     itShouldProp('width', large(20), always({ avatarError: 'avatar width should large 20'})),
     itShouldProp('height', large(20), always({ avatarError: 'avatar height should large 20'}))
-  )))
-
+  ))
   .validate((success, reason) => {
     if (!success) {
        // for controlled error message component
