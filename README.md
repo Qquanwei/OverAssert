@@ -49,6 +49,7 @@ of({name, avatarFile, age})
 
 ```
 
+> OverAssert没有包含Promise的Polyfill，如果用到了内置的异步断言例如imageMatchP，需要外部打入Promise的polyfill。
 
 ![async predicate just fun](./snapshot/async_predicate_just_fun.png)
 
