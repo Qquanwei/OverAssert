@@ -6,7 +6,7 @@
 
 校验，规则，可组合，可复用，同步&异步, 函数式.
 
-OverAssert提供一种DSL让断言规则更加语意化, 规则即是文档. 同时设计本身为函数式风格，很容易与其他库结合使用。断言函数为普通谓词函数，更加符合直觉。OverAssert也提供了大量的内置断言，覆盖多种复杂场景，对同步、异步都有非常良好的支持.
+OverAssert 提供一种 DSL 让断言规则更加语意化, 规则即是文档. 同时设计本身为函数式风格，很容易与其他库结合使用。断言函数为普通谓词函数，更加符合直觉。OverAssert 也提供了大量的内置断言，覆盖多种复杂场景，对同步、异步都有非常良好的支持.
 
 ## 使用
 ```javascript
@@ -49,7 +49,7 @@ of({name, avatarFile, age})
 
 ```
 
-> OverAssert没有包含Promise的Polyfill，如果用到了内置的异步断言例如imageMatchP，需要外部打入Promise的polyfill。
+> OverAssert 没有包含 Promise 的 Polyfill,如果用到了内置的异步断言例如imageMatchP，需要确保外部打入 Promise 的 polyfill。
 
 ![async predicate just fun](./snapshot/async_predicate_just_fun.png)
 

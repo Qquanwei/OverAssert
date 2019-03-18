@@ -1,0 +1,6 @@
+test/
+snapshot/
+src/
+.travis.yml
+coverage*
+.nyc*
