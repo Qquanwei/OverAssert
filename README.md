@@ -309,6 +309,10 @@ false 数字应该小于10
 #### 判断是否是整数
 
 ```
+123 -> true
+-123 -> true
+0 -> true
+
 12.3 -> false
 "12.3" -> false
 "12ac" -> false
