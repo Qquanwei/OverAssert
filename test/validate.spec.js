@@ -55,4 +55,10 @@ describe('Validate Spec', () => {
             }
         )
     })
+
+    it ('should return transparent', () => {
+        expect(validate(of(1), (success, reason) => {
+            return 'A';
+        })).to.be.equals('A');
+    })
 })

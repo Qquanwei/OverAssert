@@ -52,4 +52,18 @@ describe('normalP Spec', () => {
                 resolve();
             });
     })
+
+    it ('should return transparent', (resolve) => {
+        of(1)
+            .map(itShould(large(-1), always('yes')))
+            .map(itShould(delay(30), always('not')))
+            .map(itShould(large(0), always('yes')))
+            .validate((success, value) => {
+                return 'A';
+            })
+            .then((value) => {
+                expect(value).to.be.equals('A');
+                resolve();
+            })
+    })
 })

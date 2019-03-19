@@ -11,7 +11,7 @@ Assert.prototype.map = function (fn) {
 
 Assert.prototype.validate = function (callback) {
     if (callback) {
-        callback(this.success, this.value);
+        return callback(this.success, this.value);
     }
 }
 

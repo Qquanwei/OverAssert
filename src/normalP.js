@@ -12,9 +12,9 @@ NormalP.prototype.constructor = NormalP;
 
 NormalP.prototype.validate = function validate(callback) {
     if (callback) {
-        this.value
+        return this.value
             .then((v) => {
-                of(v).validate(callback);
+                return of(v).validate(callback);
             });
     }
 }
