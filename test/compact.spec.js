@@ -6,7 +6,7 @@ import less from '../src/less';
 import itShould from '../src/itShould';
 import always from '../src/always';
 import _identity from '../src/internal/_identity';
-import compact from '../src/compact';
+import { compact } from '../src';
 
 describe('Compact Spec', () => {
     it ('should be a function', () => {

@@ -27,6 +27,7 @@ import required from './required';
 import exactLength from './exactLength';
 import matchs from './matchs';
 import alphaDash from './alphaDash';
+import compact from './compact';
 
 export {
     Assert,
@@ -57,5 +58,6 @@ export {
     required,
     exactLength,
     matchs,
-    alphaDash
+    alphaDash,
+    compact
 }
