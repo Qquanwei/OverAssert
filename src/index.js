@@ -28,6 +28,7 @@ import exactLength from './exactLength';
 import matchs from './matchs';
 import alphaDash from './alphaDash';
 import compact from './compact';
+import oneOf from './oneOf';
 
 export {
     Assert,
@@ -59,5 +60,6 @@ export {
     exactLength,
     matchs,
     alphaDash,
-    compact
+    compact,
+    oneOf
 }

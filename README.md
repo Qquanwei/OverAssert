@@ -80,6 +80,7 @@ of({name, avatarFile, age})
   * [maxLength](#maxLength)
   * [exactLength](#exactLength)
   * [matchs](#matchs)
+  * [oneOf](#oneOf)
 
 * 组合规则
 
@@ -522,6 +523,23 @@ matchs(/123/) => 输入是否能够匹配123
 '12345' -> true
 
 otherwise -> false
+```
+
+<a name="oneOf"></a>oneOf(list: Array<any>) => PredicateFunction
+------
+#### 是否为其中之一
+
+```
+oneOf(['1', 2, {}])
+
+'1' -> true
+2 -> true
+
+{} -> false
+1 -> false
+'2' -> false
+null -> false
+undefined -> false
 ```
 
 <a name="compact"></a>compact(rule1: Function, rule2: Function, ...) => Rule

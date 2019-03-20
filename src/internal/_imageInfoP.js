@@ -1,15 +1,27 @@
+import _validUrl from './_validUrl';
 // only for browser
 
-function imageInfoP(imageFile) {
+function getImage(src) {
     return new Promise((done, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            done(img);
+        };
+        img.onerror = reject;
+    });
+}
+
+function imageInfoP(imageFile) {
+    // src
+    if (_validUrl(imageFile)) {
+        return getImage(imageFile);
+    }
+
+    return new Promise((done) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => {
-            const img = new Image();
-            img.src = reader.result;
-            img.onload = () => {
-                done(img);
-            };
-            img.onerror = reject;
+            done(getImage(reader.result));
         });
         reader.readAsDataURL(imageFile);
     })

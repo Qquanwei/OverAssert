@@ -26,6 +26,7 @@ describe('validUrl Spec', () => {
         const url = validUrl();
         expect(url('abc')).to.be.equals(false);
         expect(url(123)).to.be.equals(false);
+        expect(url('')).to.be.equals(false);
         expect(url(undefined)).to.be.equals(false);
         expect(url(null)).to.be.equals(false);
         expect(url('helloworld.com')).to.be.equals(false);
