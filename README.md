@@ -63,6 +63,7 @@ of({name, avatarFile, age})
 * 断言
   * [required](#required)
   * [large](#large)
+  * [largeOrEqual](#largeOrEqual)
   * [less](#less)
   * [lessOrEqual](#lessOrEqual)
   * [equals](#equals)
@@ -272,6 +273,10 @@ output
 ```
 false 数字应该大于10
 ```
+
+<a name="largeOrEqual"></a>largeOrEqual(value: number) => PredicateFunction
+----------------
+##### 判断是否大于或等于
 
 <a name="less"></a>less(value: number) => PredicateFunction
 -------------------------------

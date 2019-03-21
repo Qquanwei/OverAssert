@@ -3,6 +3,7 @@ import Normal from './normal';
 import Failed from './failed';
 import always from './always';
 import large from './large';
+import largeOrEqual from './largeOrEqual';
 import less from './less';
 import allPass from './allPass';
 import itShould from './itShould';
@@ -61,5 +62,6 @@ export {
     matchs,
     alphaDash,
     compact,
-    oneOf
+    oneOf,
+    largeOrEqual
 }
