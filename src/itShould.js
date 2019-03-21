@@ -12,7 +12,7 @@ function itShould(predicate, failed) {
                 .then(result => {
                     // situation 1
                     if (result instanceof Failed) {
-                        return reult;
+                        return result;
                     }
                     return value
                 })
