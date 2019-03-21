@@ -50,6 +50,11 @@ of({name, avatarFile, age})
 
 ![async predicate just fun](./snapshot/async_predicate_just_fun.png)
 
+
+#### React Demo online
+
+https://stackblitz.com/edit/overassert-react-test?file=index.js
+
 ## API
 
 * 建立描述
