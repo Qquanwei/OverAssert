@@ -66,4 +66,25 @@ describe('normalP Spec', () => {
                 resolve();
             })
     })
+
+    it ('should can reserve Promise', (done) => {
+        of(1)
+            .map(itShould(delay(30)), always('A'))
+            .map(item => {
+                expect(item).to.be.equals(1);
+                done();
+            })
+    })
+
+    it ('should can reserve Promise<Assert>', (done) => {
+        of(1).map(itShould(() => {
+            return new Promise(resolve => {
+                resolve(of(2))
+            });
+        }, always('A')))
+            .map(item => {
+                expect(item).to.be.equals(1);
+                done();
+            })
+    })
 })
