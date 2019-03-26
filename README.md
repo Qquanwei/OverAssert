@@ -372,18 +372,7 @@ of(imageFile)
     })
 ```
 
-imageMatchP是一个普通的异步断言. 可以和itShould结合使用。但是由于imageMatchP
-返回的是一个`Promise<Assert>`，所以既是一个断言函数，又是一个规则函数, 所以写成下面这样也没问题
-
-```javascript
-of(imageFile)
-    .map(imageMatchP(
-        itShouldProp('width', large(20), always('width should large 20')),
-        itShouldProp('height', less(100), always('height should less 100'))
-    ))
-    .validate((success, reason) => {
-    })
-```
+imageMatchP是一个普通的异步断言. 可以和itShould结合使用。
 
 <a name="validUrl"></a>validUrl() => PredicateFunction
 ----------------------
