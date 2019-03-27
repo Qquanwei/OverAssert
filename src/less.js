@@ -1,6 +1,8 @@
+import _required from './internal/_required';
+
 function less(x) {
     return value => {
-        return x > value;
+        return _required(value) && x > value;
     }
 }
 

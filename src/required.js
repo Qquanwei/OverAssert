@@ -1,11 +1,7 @@
-function required() {
-    return (value) => {
-        if (value === null || value === undefined) {
-            return false;
-        }
+import _required from './internal/_required';
 
-        return !!`${value}`.trim();
-    }
+function required() {
+    return _required;
 }
 
 export default required;

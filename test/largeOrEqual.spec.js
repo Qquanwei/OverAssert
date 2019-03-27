@@ -23,5 +23,8 @@ describe('largeOrEqual Spec', () => {
 
         expect(p(9)).to.be.equals(false);
         expect(p(0)).to.be.equals(false);
+        expect(p(null)).to.be.equals(false);
+        expect(p(undefined)).to.be.equals(false);
+        expect(p('')).to.be.equals(false);
     })
 })

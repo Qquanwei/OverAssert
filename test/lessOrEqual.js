@@ -19,4 +19,16 @@ describe('lessOrEqual Spec', () => {
         expect(lessOrEqual(1)(1)).to.be.equals(true);
         expect(lessOrEqual(1)(0)).to.be.equals(true);
     })
+
+    it ('should return true when less or equal', () => {
+        const less = lessOrEqual(1);
+        expect(less('0')).to.be.equals(true);
+    })
+    it ('should return false when not less', () => {
+        const less = lessOrEqual(1);
+        expect(less('')).to.be.equals(false);
+        expect(less(null)).to.be.equals(false);
+        expect(less(undefined)).to.be.equals(false);
+
+    })
 })
