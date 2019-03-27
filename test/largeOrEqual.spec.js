@@ -27,4 +27,11 @@ describe('largeOrEqual Spec', () => {
         expect(p(undefined)).to.be.equals(false);
         expect(p('')).to.be.equals(false);
     })
+
+    it ('should be correct with not input', () => {
+        const p = largeOrEqual(0);
+        expect(p('')).to.be.equals(false);
+        expect(p(null)).to.be.equals(false);
+        expect(p(undefined)).to.be.equals(false);
+    })
 })

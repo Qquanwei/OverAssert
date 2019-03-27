@@ -1,6 +1,8 @@
+import _required from './internal/_required';
+
 function largeOrEqual(x) {
     return value => {
-        return value >= x;
+        return _required(value) && value >= x;
     }
 }
 
