@@ -14,10 +14,11 @@ function getImage(src) {
 
 function imageInfoP(imageFile) {
     // src
-    if (_validUrl(imageFile)) {
+    if (typeof imageFile === 'string') {
         return getImage(imageFile);
     }
 
+    // blob
     return new Promise((done) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => {
