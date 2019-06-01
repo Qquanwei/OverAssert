@@ -31,6 +31,9 @@ import alphaDash from './alphaDash';
 import compact from './compact';
 import oneOf from './oneOf';
 
+const largeE = largeOrEqual;
+const lessE = lessOrEqual;
+
 export {
     Assert,
     Normal,
@@ -63,7 +66,7 @@ export {
     compact,
     oneOf,
     largeOrEqual,
-    largeE: largeOrEqual,
+    largeE,
     lessOrEqual,
-    lessE: lessOrEqual
+    lessE
 }
