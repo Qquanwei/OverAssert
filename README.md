@@ -66,27 +66,27 @@ https://stackblitz.com/edit/overassert-react-test?file=index.js
   * [validate](#validate)
 
 * 断言
-  * [required](#required) 该字段为必传
-  * [large](#large)  该字段大于x
-  * [largeOrEqual](#largeOrEqual) 该字段大于等于x
-  * [less](#less)    该字段小于x
-  * [lessOrEqual](#lessOrEqual) 该字段小于等于x
-  * [equals](#equals) 该字段等于x
-  * [integer](#integer) 该字段为整数，包含正整数，负整数和0
-  * [nature](#nature)  该字段为自然数, 包含正整数和0
-  * [natureNoZero](#natureNoZero) 该字段仅包含正整数
-  * [imageMatchP](#imageMatchP) 该字段所表示的图片满足条件x
-  * [validUrl](#validUrl)  该字段是一个有效的url
-  * [validIP](#validIP)  该字段是一个有效的ip
-  * [alpha](#alpha)  该字段是字母组成的
-  * [alphaDash](#alphaDash) 该字段是字母，下划线，中划线
-  * [numeric](#numeric)  该字段由数字组成
-  * [decimal](#decimal)  该字段是十进制的数字
-  * [minLength](#minLength) 该字段最小长度>=x
-  * [maxLength](#maxLength) 该字段最大长度<=x
-  * [exactLength](#exactLength) 该字段长度==x
-  * [matchs](#matchs) 正则匹配
-  * [oneOf](#oneOf) 枚举匹配
+  * [required](#required)            该字段为必传
+  * [large](#large)                  该字段大于x
+  * [largeOrEqual](#largeOrEqual)    该字段大于等于x
+  * [less](#less)                    该字段小于x
+  * [lessOrEqual](#lessOrEqual)      该字段小于等于x
+  * [equals](#equals)                该字段等于x
+  * [integer](#integer)              该字段为整数，包含正整数，负整数和0
+  * [nature](#nature)                该字段为自然数, 包含正整数和0
+  * [natureNoZero](#natureNoZero)    该字段仅包含正整数
+  * [imageMatchP](#imageMatchP)      该字段所表示的图片满足条件x
+  * [validUrl](#validUrl)            该字段是一个有效的url
+  * [validIP](#validIP)              该字段是一个有效的ip
+  * [alpha](#alpha)                  该字段是字母组成的
+  * [alphaDash](#alphaDash)          该字段是字母，下划线，中划线
+  * [numeric](#numeric)              该字段由数字组成
+  * [decimal](#decimal)              该字段是十进制的数字
+  * [minLength](#minLength)          该字段最小长度>=x
+  * [maxLength](#maxLength)          该字段最大长度<=x
+  * [exactLength](#exactLength)      该字段长度==x
+  * [matchs](#matchs)                正则匹配
+  * [oneOf](#oneOf)                  枚举匹配
 
 * 组合规则
 
