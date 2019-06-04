@@ -44,7 +44,6 @@ export {
     equals,
     itShouldPath,
     validate,
-    lessOrEqual,
     integer,
     nature,
     natureNoZero,
@@ -63,5 +62,8 @@ export {
     alphaDash,
     compact,
     oneOf,
-    largeOrEqual
+    largeOrEqual,
+    largeE: largeOrEqual,
+    lessOrEqual,
+    lessE: lessOrEqual
 }
