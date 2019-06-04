@@ -68,8 +68,10 @@ https://stackblitz.com/edit/overassert-react-test?file=index.js
 * 断言
   * [required](#required)            该字段为必传
   * [large](#large)                  该字段大于x
+  * [largeE](#largeOrEqual)          largeOrEqual别名
   * [largeOrEqual](#largeOrEqual)    该字段大于等于x
   * [less](#less)                    该字段小于x
+  * [lessE](#lessOrEqual)            lessOrEqual别名
   * [lessOrEqual](#lessOrEqual)      该字段小于等于x
   * [equals](#equals)                该字段等于x
   * [integer](#integer)              该字段为整数，包含正整数，负整数和0
