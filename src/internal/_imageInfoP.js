@@ -1,4 +1,3 @@
-import _validUrl from './_validUrl';
 // only for browser
 
 function getImage(src) {
