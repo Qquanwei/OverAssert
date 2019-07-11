@@ -7,7 +7,7 @@
 
 校验，规则，可组合，可复用，同步&异步, 函数式.
 
-OverAssert 提供一种 DSL 让断言规则更加语意化, 规则即是文档. 同时设计本身为函数式风格，很容易与其他库结合使用。断言函数为普通谓词函数，更加符合直觉。OverAssert 也提供了大量的内置断言，覆盖多种复杂场景，对同步、异步都有非常良好的支持.
+OverAssert 提供一种 DSL 让断言规则更加语意化, 规则即是文档. 同时设计本身为函数式风格，很容易与其他库结合使用。OverAssert 提供了大量的内置断言，覆盖多种复杂场景，对同步、异步都有非常良好的支持.
 
 ## 使用
 ```javascript
@@ -15,7 +15,7 @@ import { of, itShould, itShouldProp, always } from 'overassert';
 
 of(x)
   .map(itShould(large(10), always('应该大于10')))
-  .map(itShould(large(20), always('应该大于20')))
+  .map(itShould(large(20), always('应该大于20')
   .validate((success, reason) => {
     if (success) {
     } else {
@@ -444,7 +444,7 @@ abc -> false
 ```
 
 
-<a name="minLength"></a>minLength(value: number) => PredicateFunction
+<a name="minLength"></a>minLength(value: number
 --------
 #### 判断输入最小长度
 
@@ -462,7 +462,7 @@ ab -> false
 
 ```
 
-<a name="maxLength"></a>maxLength(value: number) => PredicateFunction
+<a name="maxLength"></a>maxLength(value: number
 ----------
 #### 判断输入最大长度
 
@@ -584,7 +584,7 @@ function asyncLarge10(value) {
 }
 
 of(x)
-    .map(itShould(asyncLarge10, always('emm!')))
+    .map(itShould(asyncLarge10, always('emm!'))
     .validate((success, value) => {
         if (success) {
             // value === x
