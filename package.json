@@ -1,6 +1,6 @@
 {
     "name": "overassert",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "校验，规则，可组合，可复用，函数式。",
     "main": "lib/index.js",
     "scripts": {
