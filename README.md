@@ -11,40 +11,26 @@ OverAssert 提供一种 DSL 让断言规则更加语意化, 规则即是文档. 
 
 ## 使用
 ```javascript
-import { of, itShould, always } from 'overassert';
+import { of, itShould, itShouldProp, always } from 'overassert';
 
 of(x)
   .map(itShould(large(10), always('应该大于10')))
   .map(itShould(large(20), always('应该大于20')))
-  .validate((success, value) => {
+  .validate((success, reason) => {
     if (success) {
-       // value === x
     } else {
-      // value === reason
     }
   })
-```
 
-
-### Using React for inline error tip
-
-```javascript
-import { of, maxLength, large, imageMatchP, itShould, always } from 'overassert';
-
-of({name, avatarFile, age})
-  .map(itShouldProp('name', maxLength(10), always({ nameError: 'the length of name should be large 10' })))
-  .map(imageMatchP(
-    itShouldProp('width', large(20), always({ avatarError: 'avatar width should large 20'})),
-    itShouldProp('height', large(20), always({ avatarError: 'avatar height should large 20'}))
-  ))
-  .validate((success, reason) => {
-    if (!success) {
-       // for controlled error message component
-        this.setState(reason);
-    }
-  });
+of(x)
+    .map(itShouldProp('name', A.required(), A.always('require name')))
+    .map(itShouldProp('age', A.required(), A.always('require age')))
+    .validate((success, reason) => {
+        return success;
+    })
 
 ```
+
 
 > OverAssert 没有包含 Promise 的 Polyfill,如果用到了内置的异步断言例如imageMatchP，需要确保外部打入 Promise 的 polyfill。
 
